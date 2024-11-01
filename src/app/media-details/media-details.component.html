@@ -1,0 +1,39 @@
+<!-- Spinner for loading -->
+<div class="spinner text-center" *ngIf="!spinner">
+    <app-spinner></app-spinner> 
+</div>
+<!-- Beginning details page --> 
+<section class="details px-2" *ngIf="spinner">
+   <div class="container">
+        <div class="row py-4" > 
+            <div class="col-md-3">
+                <img *ngIf="mediaDetails.poster_path" [src]="imgPrefix+mediaDetails.poster_path" class="w-100 rounded-3 mb-2"/>
+                <img *ngIf="mediaDetails.profile_path" [src]="imgPrefix+mediaDetails.profile_path" class="w-100 rounded-3 mb-2"/>
+            </div>
+            <div class="col-md-9">
+                <h3 class="py-2 mb-3"> {{mediaDetails.name}} {{mediaDetails.title}} </h3>
+                <ul class="list-unstyled d-flex flex-wrap">
+                    <li class="vote vote-details p-2 rounded-2 me-3 mb-3" *ngFor="let genre of mediaDetails.genres">{{genre.name}}</li>
+                </ul>
+                <h6 *ngIf="mediaDetails.vote_count" class="py-2 mb-3 fw-bold text-mute" > Vote Count : {{mediaDetails.vote_count}}</h6>
+                <h6 *ngIf="mediaDetails.vote_average" class="py-2 mb-3 fw-bold text-mute" > Vote Average : {{mediaDetails.vote_average}}</h6>
+                <h6 class="py-2 mb-3 fw-bold text-mute"> popularity : {{mediaDetails.popularity}} </h6>
+                <p class="py-2 text-mute"> {{mediaDetails.overview|seemore:80}} {{mediaDetails.biography|seemore:80}} </p>
+            </div>
+        </div>
+         
+        
+        
+        <div class="row py-4" >
+            <h4 class="py-4 text-center" *ngIf="mediaSimilar.length"> Similar to it : </h4>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let similar of mediaSimilar">
+                <div (click)="getSimilar(media_type, similar.id)" class="item position-relative">
+                      <img *ngIf="similar.poster_path" [src]="imgPrefix+similar.poster_path" class="w-100 rounded-3"/>
+                      <img *ngIf="similar.profile_path" [src]="imgPrefix+similar.profile_path" class="w-100 rounded-3"/>
+                      <h3 class="h5 my-2">{{similar.title}} {{similar.name}}</h3>
+                      <p *ngIf="similar.vote_average" class="vote position-absolute top-0 end-0 p-2 text-white">{{similar.vote_average.toFixed(1)}}</p>  
+               </div>
+            </div>
+        </div>
+    </div>
+</section>

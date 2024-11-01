@@ -1,0 +1,14 @@
+<!-- Beginning Header -->
+<header class="home-header py-4 row align-items-end m-0" >
+   <owl-carousel-o [options]="customOptions" >
+      <ng-container *ngFor="let slide of allMovies">
+         <ng-template carouselSlide >
+            <a [routerLink]="['/mediaDetails', slide.id, slide.media_type]">
+               <img *ngIf="slide.poster_path" [src]="'https://image.tmdb.org/t/p/w500/'+slide.poster_path"  class="w-100"/>
+               <img *ngIf="slide.profile_path" [src]="'https://image.tmdb.org/t/p/w500/'+slide.profile_path"  class="w-100"/>
+            </a>
+        </ng-template>
+      </ng-container>
+   </owl-carousel-o>
+</header>
+<!-- End Header -->

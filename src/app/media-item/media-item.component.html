@@ -1,0 +1,8 @@
+<div class="item position-relative">
+        <a [routerLink]="['/mediaDetails', item.id, item.media_type]">
+          <img *ngIf="item.poster_path" [src]="imgPrefix+item.poster_path" class="w-100 rounded-3"/>
+          <img *ngIf="item.profile_path" [src]="imgPrefix+item.profile_path" class="w-100 rounded-3"/>
+          <h3 class="h5 mb-4 mt-2">{{item.title}} {{item.name}}</h3>
+          <p *ngIf="item.vote_average" class="vote position-absolute top-0 end-0 p-2 text-white">{{item.vote_average.toFixed(1)}}</p>  
+        </a>
+</div>

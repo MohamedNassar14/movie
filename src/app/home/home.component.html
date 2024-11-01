@@ -1,0 +1,52 @@
+<!-- Beginning Header -->
+<app-home-header [allMovies]="trendingMovies"></app-home-header>
+<!-- End Header -->
+<!-- Beginning Home -->
+<section class="home px-2">
+   <div class="container">
+      <!-- Spinner for loading  -->
+      <div class="spinner text-center" *ngIf="!spinner">
+         <app-spinner></app-spinner>
+      </div>
+      <div class="row py-4 mt-1" *ngIf="spinner">
+         <div class="col-lg-4 col-md-3 d-flex align-items-center">
+            <div>
+               <div class="line w-25 mb-3"></div>
+                  <h2 class="h4"> Trending <br/> Movies <br/> To Watch Now </h2>
+                  <p class="text-mute"> Most watched movies by days </p>
+                <div class="line w-100 mb-3"></div> 
+            </div>
+         </div>
+         <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let movie of trendingMovies | search:term">
+               <app-media-item [item]="movie"></app-media-item>
+         </div>
+      </div>
+        <div class="row py-4" *ngIf="spinner">
+           <div class="col-lg-4 col-md-3 d-flex align-items-center">
+              <div>
+                 <div class="line w-25 mb-3"></div>
+                    <h2 class="h4"> Trending <br/> Tv <br/> To Watch Now </h2>
+                    <p class="text-mute"> Most Watched Tv By Days </p>
+                 <div class="line w-100 mb-3"></div>
+              </div>
+           </div>
+           <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let tv of trendingTv | search:term">
+              <app-media-item [item]="tv"></app-media-item>
+           </div>
+        </div>
+        <div class="row py-4" *ngIf="spinner">
+           <div class="col-lg-4 col-md-3 d-flex align-items-center">
+              <div>
+                 <div class="line w-25 mb-3"></div>
+                    <h2 class="h4"> Trending <br/> People <br/> To Watch Now </h2>
+                    <p class="text-mute"> Most Watched People By Days </p>
+                 <div class="line w-100 mb-3"></div>
+              </div>
+           </div>
+           <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let person of trendingPeople | search:term">
+              <app-media-item [item]="person"></app-media-item>
+           </div>
+        </div>
+   </div>
+</section>
+<!-- End Home -->

@@ -1,0 +1,8 @@
+.home-header
+{
+    min-height: 500px;
+    background-image: url(../../assets/images/title.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

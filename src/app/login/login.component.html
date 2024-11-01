@@ -1,0 +1,26 @@
+<section class="form px-3 py-3">
+    <div class="container">
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <form (ngSubmit)="submitLoginForm(loginForm)" [formGroup]="loginForm">
+            <label for="email">Email :</label>
+            <input formControlName="email" type="email" class="form-control input-mine mb-4" id="email">
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="alert alert-danger py-2">
+                <p class="m-0" *ngIf="loginForm.get('email')?.getError('required')"> Email is required </p>
+                <p class="m-0" *ngIf="loginForm.get('email')?.getError('email')"> Email format invalid </p>
+            </div>
+            <label for="password">Password :</label>
+            <input formControlName="password" type="password" class="form-control input-mine mb-3" id="password">
+            <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="alert alert-danger py-1">
+                <p class="m-0" *ngIf="loginForm.get('password')?.getError('required')"> password is required </p>
+            </div>
+            <button type="submit" class="btn btn-info">
+                <span *ngIf="!isLoading" >Login</span>
+                <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+            </button>
+            <p class="py-4">
+              Don't have an account?  
+              <a routerLink="/register" class="text-info"> Register </a>
+            </p>
+        </form>
+    </div>
+</section>

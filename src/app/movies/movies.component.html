@@ -1,0 +1,23 @@
+<!-- Spinner for loading -->
+<div class="spinner text-center" *ngIf="!spinner">
+   <app-spinner></app-spinner> 
+</div>
+<!-- Beginning movies page --> 
+<section class="movies px-2 py-3" *ngIf="spinner">
+   <div class="container">
+      <h2 class="text-center pb-4"> Movies </h2>
+      <div class="row">
+         <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let movie of trendingMovies | search:term">
+            <app-media-item [item]="movie"></app-media-item>
+         </div>
+      </div>
+    </div>
+</section>
+<!-- End movies page --> 
+<nav aria-label="..." class="d-flex justify-content-center" *ngIf="spinner">
+   <ul class="pagination">
+     <li class="page-item mx-1" *ngFor="let page of pages" (click)="getAllMovies(page)"> 
+       <a class="page-link"> {{page}} </a>
+     </li>
+   </ul>
+</nav>

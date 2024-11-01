@@ -1,0 +1,23 @@
+<!-- Spinner for loading -->
+<div class="spinner text-center" *ngIf="!spinner">
+    <app-spinner></app-spinner> 
+</div>
+<!-- Beginning people page --> 
+<section class="peopel px-2 py-3" *ngIf="spinner">
+   <div class="container">
+      <h2 class="text-center pb-4"> People </h2>
+      <div class="row my-3">
+         <div class="col-lg-2 col-md-3 col-sm-6 col-6" *ngFor="let person of trendingPeople | search:term">
+            <app-media-item [item]="person"></app-media-item>
+         </div>
+      </div> 
+    </div>
+</section>
+<!-- End people page --> 
+<nav aria-label="..." class="d-flex justify-content-center" *ngIf="spinner">
+   <ul class="pagination">
+     <li class="page-item mx-1" *ngFor="let page of pages" (click)="getAllPeople(page)"> 
+       <a class="page-link"> {{page}} </a>
+     </li>
+   </ul>
+</nav>
