@@ -17,7 +17,7 @@ body
     background-color: var(--main-bg);
     font-family: var(--main-font);
     color: var(--text-color);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 a,a:hover
 {
@@ -102,10 +102,6 @@ ul
 }
 @media screen and (max-width: 600px)
 {
-    body
-    {
-        overflow: hidden !important;
-    }
     .container
     {
         --bs-gutter-x: 1.75rem !important;
