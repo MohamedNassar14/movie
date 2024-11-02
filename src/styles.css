@@ -6,8 +6,8 @@
     --bg-light: #24baef; 
     --main-font: 'Montserrat Alternates', sans-serif;
     --text-color: #fff;
-    --border-colo : #a8a8a83d;
-    --bg-gray: #151c2e;
+    --border-color : #a8a8a83d;
+    --bg-gray : #151c2e;
 }
 body
 {
@@ -68,6 +68,7 @@ ul
     width: 15rem;
     height: 100vh;
     z-index: 999;
+    background-color: var(--main-bg);
     transition: all .5s ease-in-out;
 }
 .open-menu
