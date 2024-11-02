@@ -107,7 +107,7 @@ ul
     }
     .pagination
     {
-        --bs-pagination-font-size: .75rem !important;
+        --bs-pagination-font-size: .5rem !important;
     }  
     .social-accounts
     {
