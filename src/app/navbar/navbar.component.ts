@@ -42,10 +42,10 @@ export class NavbarComponent implements OnInit {
   }
   openMenu()
   {
-    this.menuStyle = '25%'
+    this.menuStyle = '0'
   }
   closeMenu()
   {
-     this.menuStyle = '100%'
+    this.menuStyle = '-15rem'
   }
 }
